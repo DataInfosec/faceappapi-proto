@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package middleware;
+
+message JwtRequest {
+  string token = 1;
+}
+
+message JwtResponse { 
+    string firstname = 1;
+    string lastname = 2;
+    string email = 3;
+    bool authorized = 4;
+    string exp = 5;
+    string id = 6;
+    string company = 7;
+    string type = 8;
+}
+
+service JwtService {
+  rpc JwtService(JwtRequest) returns (JwtResponse) {}
+}

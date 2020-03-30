@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package finduserbyid;
+
+message UserRequest {
+  string id = 1;
+}
+
+message CompanyRequest {
+  string id = 1;
+}
+
+message UserResponse { 
+    string firstname = 1;
+    string lastname = 2;
+    string email = 3;
+    string type = 4;
+    string id = 5;
+    string company = 6;
+}
+
+message CompanyResponse {
+  string id = 1;
+	string name = 2;
+	string email = 3;
+	string address = 4; 
+	string city = 5;
+	string state = 6;
+	string country = 7;
+}
+
+service SharedServices {
+  rpc UserService(UserRequest) returns (UserResponse) {}
+  rpc CompanyService(CompanyRequest) returns (CompanyResponse) {}
+}
+
